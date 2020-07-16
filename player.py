@@ -1,4 +1,19 @@
-stats = { 'ID': 1, 'level' : 1, 'exp': 0, 'expNext': 10, 'health': 10, 'attack': 1, 'defense': 1, 'wisdom': 1, 'speed': 1 }
+stats = { 
+    'ID': 1, 
+    'level' : 1, 
+    'exp': 0, 
+    'expNext': 10, 
+    'health': 10, 
+    'maxHealth': 10, 
+    'attack': 1, 
+    'defense': 1, 
+    'wisdom': 1, 
+    'speed': 1,
+    'inventory': {
+        'apple': 2,
+        'key': 1,
+    } 
+    }
 
 def levelUp(stats):
     newStats = stats
@@ -6,7 +21,7 @@ def levelUp(stats):
     newStats['expNext'] = round(newStats['expNext'] * 1.2 + 10)
     return newStats
 
-def addLevel(stats):
+def addLevel(stats, ctx):
     newStats = stats
     increase = newStats['expNext'] - newStats['exp']
     newStats = addExp(newStats, increase)
